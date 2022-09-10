@@ -1,6 +1,6 @@
-import 'package:cupertino_routing_tutorial_07/home_views.dart';
+import 'package:cupertino_routing_tutorial_07/home/home_views.dart';
 import 'package:cupertino_routing_tutorial_07/nav.dart';
-import 'package:cupertino_routing_tutorial_07/profile_views.dart';
+import 'package:cupertino_routing_tutorial_07/profile/profile_views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
             .map(
               (item) => BottomNavigationBarItem(
                 icon: Icon(item.icon),
-                title: Text(item.title),
+                label: item.title,
               ),
             )
             .toList(),
@@ -71,13 +71,13 @@ class _HomeViewState extends State<HomeView> {
               switch (index) {
                 case 0:
                   return HomeViewPage();
-                  break;
                 case 1:
                   return ProfileView();
                 default:
+                  return CircularProgressIndicator();
               }
             });
-        return HomeViewPage();
+        // return HomeViewPage();
       },
     );
   }
